@@ -43,3 +43,8 @@ curl -o /tmp/frontend.zip https://roboshop-artifacts.s3.amazonaws.com/frontend-v
 cd /usr/share/nginx/html 
 unzip /tmp/frontend.zip &>>$LOG_FILE
 VALIDATE $? "Downloading frontend"
+
+
+rm -rf /etc/nginx/nginx.conf
+cp $SCRIPT_DIR/nginx.conf /etc/nginx/nginx.conf
+VALIDATE $? "Copying nginx.conf"
